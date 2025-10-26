@@ -16,13 +16,14 @@ async function logar(event) {
 		const res = await fetch('/login', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ email, password: senha })
+			body: JSON.stringify({ email, senha })
 		});
 
 		const data = await res.json();
 
 		if (res.ok) {
-			alert(data.message || 'Login bem sucedido');
+			// Redirecionar para a dashboard quando autenticado
+			window.location.href = '/dashboard';
 		} else {
 			alert(data.message || 'Falha no login');
 		}

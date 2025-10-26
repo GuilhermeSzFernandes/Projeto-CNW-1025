@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <%- include('../partials/head'); %>
+    <link rel="stylesheet" href="/CSS/index.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <%- include('../partials/header'); %>
+
+    <main class="container" style="padding:32px;">
+        <h1>Bem-vindo ao Dashboard</h1>
+        <p>Esta é a sua área após o login. Não há lógica especial nesta página — apenas um layout inicial.</p>
+
+        <section style="display:flex; gap:16px; margin-top:24px; flex-wrap:wrap;">
+            <div style="flex:1 1 200px; padding:16px; border:1px solid #ddd; border-radius:8px; background:#fff;">
+                <h3>Resumo</h3>
+                <p>Espaço reservado para métricas e informações rápidas.</p>
+            </div>
+
+            <div style="flex:1 1 200px; padding:16px; border:1px solid #ddd; border-radius:8px; background:#fff;">
+                <h3>Notícias</h3>
+                <p>Atualizações recentes e avisos aparecem aqui.</p>
+            </div>
+
+            <div style="flex:1 1 200px; padding:16px; border:1px solid #ddd; border-radius:8px; background:#fff;">
+                <h3>Atalhos</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/perfil">Perfil (exemplo)</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <%- include('../partials/footer'); %>
+</body>
+</html>

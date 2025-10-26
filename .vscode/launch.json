@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Depurar com Nodemon",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "nodemon",
+      "program": "${workspaceFolder}/server.js",
+      "restart": true,
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}

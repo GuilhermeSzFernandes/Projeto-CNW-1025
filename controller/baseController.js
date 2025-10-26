@@ -9,3 +9,8 @@ exports.loginPage = (req, res) => {
 exports.registrarPage = (req, res) => {
     res.render("pages/cadastro");
 };
+
+exports.dashboardPage = (req, res) => {
+    // Página simples de dashboard (sem lógica de autenticação aqui)
+    res.render("pages/dashboard");
+};

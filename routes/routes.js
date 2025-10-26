@@ -13,7 +13,12 @@ router.get("/login", baseController.loginPage);
 // pagina registrar
 router.get("/registrar", baseController.registrarPage);
 
+// pagina dashboard
+router.get("/dashboard", baseController.dashboardPage);
+
 // Recebe post do formulário de login
 router.post('/login', autenticacaoController.login);
+
+router.post("/registrar", autenticacaoController.cadastrar)
 
 module.exports = router;

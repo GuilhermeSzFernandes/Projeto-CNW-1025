@@ -4,39 +4,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.login-form');
     if (!form) return;
 
-    const passwordEl = document.getElementById('password');
-    const confirmEl = document.getElementById('confirmPassword');
+    const senhaEl = document.getElementById('senha');
+    const confirmSenhaEl = document.getElementById('confirmSenha');
     const confirmMessage = document.getElementById('confirmMessage');
 
     function validatePasswords() {
-        if (!passwordEl || !confirmEl) return true; // nada a validar
+        if (!senhaEl || !confirmSenhaEl) return true; // nada a validar
 
-        const pass = passwordEl.value;
-        const conf = confirmEl.value;
+        const senha = senhaEl.value;
+        const confSenha = confirmSenhaEl.value;
 
-        if (pass === conf) {
+        if (senha === confSenha) {
             if (confirmMessage) confirmMessage.style.display = 'none';
-            confirmEl.style.borderColor = '';
+            confirmSenhaEl.style.borderColor = '';
             return true;
-        } else {
+        } 
+        else {
             if (confirmMessage) confirmMessage.style.display = 'block';
-            confirmEl.style.borderColor = 'crimson';
+            confirmSenhaEl.style.borderColor = 'crimson';
             return false;
         }
     }
 
- 
-
     // Validar ao digitar
-    if (passwordEl) passwordEl.addEventListener('input', validatePasswords);
-    if (confirmEl) confirmEl.addEventListener('input', validatePasswords);
+    if (senhaEl) senhaEl.addEventListener('input', validatePasswords);
+    if (confirmSenhaEl) confirmSenhaEl.addEventListener('input', validatePasswords);
 
+    
     // Interceptar submit do form
     form.addEventListener('submit', (e) => {
         if (!validatePasswords()) {
             e.preventDefault();
             // foco no campo de confirmação
-            if (confirmEl) confirmEl.focus();
+            if (confirmSenhaEl) confirmSenhaEl.focus();
         }
     });
 });

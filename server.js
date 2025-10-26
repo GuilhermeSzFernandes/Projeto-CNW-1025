@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Criei um arquivo para rotas, assim deixa o arquivo origem mais limpo
-const indexRouter = require("./routes/index");
+const indexRouter = require("./routes/routes");
 app.use("/", indexRouter);
 
 // Iniciando o servidor
