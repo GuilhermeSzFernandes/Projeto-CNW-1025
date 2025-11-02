@@ -20,7 +20,7 @@ router.get("/registrar", baseController.registrarPage);
 router.get("/dashboard",baseController.dashboardPage);
 
 // Listar Grupos por usuario_id
-router.get("/listarGrupos/:usuario_id", gruposController.listarGrupos);
+router.get("/listarGrupos/:usuario_id", autenticacaoMidd,gruposController.listarGrupos);
 
 // --- POST -----------------------
 

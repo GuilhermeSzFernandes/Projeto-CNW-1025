@@ -27,6 +27,12 @@ async function carregarDados(){
         },
     })
 
+    if(resposta.status = 401){
+            alert("Você deve estar logado para entrar nesta pagina!")
+            
+            window.location.href = '/login';
+    }
+
     const data = await resposta.json()
     const listaGrupos = data.grupos;
     const groupList = document.getElementById('gruposList');
@@ -205,7 +211,7 @@ async function entrarGrupo(){
 
             alert("Codigo Invalido!")
         }
-        else if(resposta.status = 403){
+        else if(resposta.status = 401){
             alert("Você deve estar logado para fazer isto!")
             
             window.location.href = '/login';
@@ -239,7 +245,7 @@ async function cadastrarGrupo(){
         
         carregarDados();
     }
-    else if(resposta.status = 403){
+    else if(resposta.status = 401){
             alert("Você deve estar logado para fazer isto!")
             
             window.location.href = '/login';
