@@ -2,15 +2,25 @@ const token = localStorage.getItem('token');
 const liLogin = document.querySelector("#liLogin")
 const liProfile = document.querySelector("#liProfile")
 const liHome = document.querySelector("#liHome")
-if(!token){
-    liProfile.style.display = "none"
-    liHome.style.display = "none"
-    liLogin.style.display = "block"
+
+const validaToken = async () => {
+    const res = await fetch('/ValidarToken',  {
+        method: 'GET',
+        headers: {'Authorization': `Bearer ${token}`}
+    })
+
+    if(res.status != 200){
+        liProfile.style.display = "none";
+        liHome.style.display = "none";
+        liLogin.style.display = "block";
+    }
+    else{
+        liProfile.style.display = "block";
+        liHome.style.display = "block";
+        liLogin.style.display = "none";
+    }
 }
-else{
-    liProfile.style.display = "block";
-    liLogin.style.display = "none";
-}
+validaToken()
 
 var textoHome = [
     "Familiar",

@@ -11,7 +11,7 @@ const autenticacaoMiddleweare = (req, res, next) => {
     const token = authHeader.split(" ")[1];
 
     if(!token){
-        res.status(401).json({error: "Erro no token"});
+        return res.status(401).json({error: "Erro no token"});
     }
 
     try{

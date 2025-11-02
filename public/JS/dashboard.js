@@ -3,8 +3,25 @@ const usuario_id = localStorage.getItem('usuario_id');
 const nomeUsuario = localStorage.getItem('nomeUsuario');
 var loader = document.querySelector('.loader-overlay');
 
-if(!token)
-    window.location.href = '/';
+const validaToken = async () => {
+    const res = await fetch('/ValidarToken',  {
+        method: 'GET',
+        headers: {'Authorization': `Bearer ${token}`}
+    })
+
+    if(res.status == 200){
+        liProfile.style.display = "none"
+        liHome.style.display = "none"
+        liLogin.style.display = "block"
+
+        window.location.href = "/"
+    }
+    else{
+        liProfile.style.display = "block";
+        liLogin.style.display = "none";
+    }
+}
+validaToken()
 
 const liLogin = document.querySelector("#liLogin")
 const liProfile = document.querySelector("#liProfile")
@@ -26,12 +43,6 @@ async function carregarDados(){
             'Authorization': `bearer ${token}`
         },
     })
-
-    if(resposta.status = 401){
-            alert("Você deve estar logado para entrar nesta pagina!")
-            
-            window.location.href = '/login';
-    }
 
     const data = await resposta.json()
     const listaGrupos = data.grupos;
@@ -68,6 +79,7 @@ async function carregarDados(){
 }
 
 carregarDados();
+
 // Pegando todos os inputs OTP
 const otpInputs = document.querySelectorAll(".otp-input")
 let otpValue = ""
@@ -210,11 +222,6 @@ async function entrarGrupo(){
             })
 
             alert("Codigo Invalido!")
-        }
-        else if(resposta.status = 401){
-            alert("Você deve estar logado para fazer isto!")
-            
-            window.location.href = '/login';
         }
     }
     loader.style.display = 'none';

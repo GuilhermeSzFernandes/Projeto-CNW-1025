@@ -8,6 +8,9 @@ const autenticacaoMidd = require("../middleware/autenticacao");
 
 // --- GET ------------------------
 
+// ValidarToken
+router.get("/ValidarToken", autenticacaoMidd);
+
 router.get("/", baseController.index); 
 
 // pagina login

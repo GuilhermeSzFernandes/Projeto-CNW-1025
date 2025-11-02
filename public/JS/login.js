@@ -1,15 +1,9 @@
-const token = localStorage.getItem('token');
 const liLogin = document.querySelector("#liLogin")
 const liProfile = document.querySelector("#liProfile")
-if(!token){
-    liProfile.style.display = "none"
-    liHome.style.display = "none"
-    liLogin.style.display = "block"
-}
-else{
-    liProfile.style.display = "block";
-    liLogin.style.display = "none";
-}
+const liHome = document.querySelector("#liHome")
+liLogin.style.display = "block";
+liProfile.style.display = "none";
+liHome.style.display = "none"
 
 // ...existing code...
 async function logar(event) {
