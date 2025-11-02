@@ -43,6 +43,12 @@
     padding: 0;
 }
 
+.nav-img img{
+    height: 40px;
+    border-radius: 50%;
+    border: 0.5px solid black;
+}
+
 /*End NavBar style*/
 
 

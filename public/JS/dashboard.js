@@ -6,6 +6,11 @@ var loader = document.querySelector('.loader-overlay');
 if(!token)
     window.location.href = '/';
 
+const liLogin = document.querySelector("#liLogin")
+const liProfile = document.querySelector("#liProfile")
+liProfile.style.display = "block";
+liLogin.style.display = "none";
+
 async function carregarDados(){
     loader.style.display = 'flex';
     // Carregando Nome
