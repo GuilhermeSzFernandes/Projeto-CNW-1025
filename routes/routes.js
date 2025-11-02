@@ -4,6 +4,7 @@ const router = express.Router(); // Cria um novo objeto Router
 const baseController = require('../controller/baseController')
 const gruposController = require('../controller/gruposController')
 const autenticacaoController = require('../controller/autenticacaoController')
+const autenticacaoMidd = require("../middleware/autenticacao");
 
 // --- GET ------------------------
 
@@ -16,7 +17,7 @@ router.get("/login", baseController.loginPage);
 router.get("/registrar", baseController.registrarPage);
 
 // pagina dashboard
-router.get("/dashboard", baseController.dashboardPage);
+router.get("/dashboard",baseController.dashboardPage);
 
 // Listar Grupos por usuario_id
 router.get("/listarGrupos/:usuario_id", gruposController.listarGrupos);
@@ -30,9 +31,9 @@ router.post('/login', autenticacaoController.login);
 router.post("/registrar", autenticacaoController.cadastrar)
 
 // Entra em Grupos por shareCode
-router.post("/entrarGrupo", gruposController.entrarGrupo);
+router.post("/entrarGrupo", autenticacaoMidd,gruposController.entrarGrupo);
 
 // Cria Grupos 
-router.post("/criarGrupo", gruposController.criarGrupo);
+router.post("/criarGrupo", autenticacaoMidd,gruposController.criarGrupo);
 
 module.exports = router;

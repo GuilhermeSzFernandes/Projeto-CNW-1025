@@ -205,6 +205,11 @@ async function entrarGrupo(){
 
             alert("Codigo Invalido!")
         }
+        else if(resposta.status = 403){
+            alert("Você deve estar logado para fazer isto!")
+            
+            window.location.href = '/login';
+        }
     }
     loader.style.display = 'none';
 }
@@ -234,5 +239,10 @@ async function cadastrarGrupo(){
         
         carregarDados();
     }
+    else if(resposta.status = 403){
+            alert("Você deve estar logado para fazer isto!")
+            
+            window.location.href = '/login';
+        }
     loader.style.display = 'none';
 }
